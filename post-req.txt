@@ -1,0 +1,9 @@
+POST /path HTTP/1.1
+Host: www.baidu.com
+User-Agent: curl/7.45.0
+Accept: */*
+yyyy: xxx
+Content-Length: 24
+Content-Type: application/x-www-form-urlencoded
+
+user=ff&password=123
