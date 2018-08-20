@@ -4,7 +4,6 @@
   ```
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   ```
-  
   作用：防止手机页面模拟980px；让页面宽度等于设备宽度；防止页面在用户双击的时候放大；防止用户两指缩放页面；
   viewport：视口
   device-width：设备宽度
@@ -44,9 +43,8 @@
   ```
   只有当媒体宽度小于 320px 的时候，style.css才会生效
 
-
 3.动态 rem 方案
-  手机专用的自适应方案，pad，pc不适用。rem（root em），根元素（html）的font-size,rem的核心是缩放，把所有元素放大缩小，解决了百分比布局宽高没关联的问题。
+  手机专用的自适应方案，pad，pc不适用。rem（root em），根元素（html）的font-size,rem核心是缩放，把所有元素放大缩小，解决了百分比布局宽高没关联的问题。
 
   手机端方案的特点：
   ⅰ所有手机显示的界面都是一样的，只是大小不同
