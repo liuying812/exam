@@ -17,3 +17,10 @@
 
 4：此时，Web服务器提供资源服务，客户端开始下载资源。
 请求返回后，浏览器会解析HTML生成DOM Tree，其次会根据CSS生成CSSRule Tree，而javascript又可以根据DOMAPI操作DOM
+
+
+
+
+
+
+
