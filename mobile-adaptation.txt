@@ -15,7 +15,7 @@
 
 2.媒体查询（media query）
   定义：对当前媒体设备进行某些条件查询叫媒体查询
-  ① 在style标签中直接使用@media
+  ⅰ 在style标签中直接使用@media
   ```
   @media(max-width: 768px){
   	body{background: red;}
@@ -38,7 +38,7 @@
   }
   ```
 
-  ② 媒体查询结果指向一个文件
+  ⅱ 媒体查询结果指向一个文件
   ```
   <link rel="stylesheet" href="style.css" media="(max-width: 320px)">
   ```
@@ -46,11 +46,11 @@
 
 
 3.动态 rem 方案
-  手机专用的自适应方案，pad，pc不适用。rem（root em），根元素（html）的font-size,rem的核心是缩放，把所有元素放大缩小，解决了百分比布局宽高没有关联的缺陷。
+  手机专用的自适应方案，pad，pc不适用。rem（root em），根元素（html）的font-size,rem的核心是缩放，把所有元素放大缩小，解决了百分比布局宽高没关联的问题。
 
   手机端方案的特点：
-  ① 所有手机显示的界面都是一样的，只是大小不同
-  ② 1 rem == html font-size == viewport width
+  ⅰ所有手机显示的界面都是一样的，只是大小不同
+  ⅱ 1 rem == html font-size == viewport width
 
   一切以宽度为基准，通过js动态设置不同设备的rem
 
