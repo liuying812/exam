@@ -1,0 +1,30 @@
+在JavaScript中，call、apply和bind是Function对象自带的三个方法，用法类似是将函数绑定到上下文中，即用来改变函数中this的指向。
+
+apply 、 call 、bind 三者第一个参数都是 this 要指向的对象，也就是想指定的上下文；
+apply 、 call 、bind 三者都可以利用后续参数传参；
+bind 是返回对应 函数，便于稍后调用；apply 、call 则是立即调用 。
+
+```
+var tom = {
+    name: "tom",
+    sayHello: function (age) {
+         console.log("I am ", this.name + ', '+ age + ' years old.');
+     }
+};
+
+var  jerry = {
+    name: "jerry",
+};
+
+tom.sayHello(24)     // I am  tom, 24 years old.
+
+```
+tom.sayHello.call(jerry, 24);  // I am  jerry, 24 years old.
+tom.sayHello.apply(jerry, [24]);  // I am  jerry, 24 years old.
+
+相同：第一个参数都是要绑定的上下文，后面的参数是要传递给调用该方法的函数的。
+不同: call方法传递给调用函数的参数是逐个列出的，而apply则是要写在数组中。
+
+tom.sayHello.bind(jerry, 24)(); // I am  jerry, 24 years old.
+tom.sayHello.bind(jerry, [24])(); // I am  jerry, 24 years old.
+bind方法参数可以逐个列出，也可以写在数组中。bind方法与call、apply最大的不同就是前者返回一个绑定上下文的函数，而后两者是直接执行了函数。
