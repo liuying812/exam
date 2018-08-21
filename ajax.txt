@@ -1,0 +1,22 @@
+
+
+请使用原生 JS 写出一个 AJAX 请求?
+
+btn.addEventListener('click', (e) => {
+	let request = new XMLHttpRequest()                    //创建XMLhttpRequest对象
+	request.open('get', 'http://jack.com:8002/abc')      //初始化配置request
+	request.send()										 //发送
+	request.onreadystatechange = (e) =>{                 //监听状态变化
+		if(request.readyState === 4){                    //4代表整个请求过程完毕
+			if(request.status >= 200 && request.status < 300){       //状态码2XX开头代表响应成功
+				let string = request.responseText                    //拿到响应内容
+				let object = window.JSON.parse(string)               //解析（string->object）
+			}
+		}
+	}
+
+})
+
+
+
+
