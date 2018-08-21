@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DOM事件点击浮层</title>
+  <style>
+		body{
+		  border: 1px solid red;
+		  text-align: center;
+		}
+		.wrapper{
+		  position: relative;
+		  display: inline-block;
+		  padding-top: 20px;
+		  padding-bottom: 20px;
+		}
+		.popover{
+		  border: 1px solid red;
+		  position: absolute;
+		  width: 200px;
+		  margin-top: 10px;
+		  left: 100%;
+		  top: 0;
+		  white-space: nowrap;
+		  padding: 10px;
+		  margin-left: 10px;
+		  background: white;
+		  display: none;
+		}
+		.popover::before{
+		  position: absolute;
+		  right: 100%;
+		  top: 5px;
+		  border: 10px solid transparent;
+		  border-right-color: red;
+		  content: '';
+		}
+		.popover::after{
+		  position: absolute;
+		  right: 100%;
+		  top: 5px;
+		  border: 10px solid transparent;
+		  border-right-color: white;
+		  content: '';
+		  margin-right: -1px;
+		}
+  </style>
+</head>
+<body>
+  <div id="wrapper" class="wrapper">
+    <button id="clickMe">点我</button>
+    <div id="popover" class="popover">浮层</div>
+  </div>
+
+  <p>写出一个点开浮层、关闭浮层的例子，要求:
+1.点击按钮弹出浮层
+2.点击别处关闭浮层
+3.点击浮层时，浮层不得关闭
+4.再次点击按钮，浮层消失</p>
+
+<script src="./js/jquery3.min.js"></script>
+
+  <script>
+  		$('#clickMe').on('click', function() {
+  		  $(popover).show()
+  		  console.log('show')
+ 		  
+ 		 popover.addEventListener('click', function(e){
+			  e.stopPropagation()
+		  })
+
+  		  setTimeout(function() {
+  		    console.log('准备执行one click')
+  		    $(document).one('click', function() {
+  		      console.log('这是one click里面 马上hide')
+  		      $(popover).hide()
+  		    })
+  		  }, 0)		
+  		})
+
+
+  </script>
+
+</body>
+</html>
