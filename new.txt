@@ -20,10 +20,15 @@ human.__proto__.constructor === Human 为 true
 
 function Human(options){
 	this.name = options.name
-    this.city = options.city
+	this.city = options.city
 }
 
 Human.prototype.species = '人类' 
 Human.prototype.walk = function(){/*行走代码*/}
 Human.prototype.useTools = function(){/*使用工具代码*/}
+
+var human = new Human({name:'Frank', city: 'Hangzhou'})
+var human2 = new Human({name:'Jack', city: 'Hangzhou'})
+
+
 
