@@ -18,19 +18,12 @@ human.__proto__ 对应的对象（也就是原型）具有物种（species）、
 human.__proto__.constructor === Human 为 true
 
 
-function Human(name,city){
-	var  临时对象 = {}
-
-	临时对象.__proto__ = Human.原型
-
-	临时对象.name = name
-	临时对象.city = city
-
-	return 临时对象
+function Human(options){
+	this.name = options.name
+    this.city = options.city
 }
 
-Human.原型 = {
-	species: '中国人',
-	walk:function(){/*走的代码*/}
-	useTools:function(){/*使用工具代码*/}
-}
+Human.prototype.species = '人类' 
+Human.prototype.walk = function(){/*行走代码*/}
+Human.prototype.useTools = function(){/*使用工具代码*/}
+
