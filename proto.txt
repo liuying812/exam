@@ -1,3 +1,4 @@
+第 1 题
 var object = {}
 object.__proto__ === Object.prototype  
 
@@ -17,3 +18,100 @@ Object.__proto__ === Function.prototype
 true.__proto__ === Boolean.prototype
 
 Function.prototype.__proto__ === Object.prototype
+
+
+
+第 2 题
+function fn(){
+    console.log(this)
+}
+new fn()
+new fn() 会执行 fn，并打印出 this，请问这个 this 有哪些属性？这个 this 的原型有哪些属性？
+
+this本身没有属性，只有一个隐藏的 __proto__ 属性
+this原型是fn.prototype, 有一个属性constructor,
+且constructor === fn ,
+另外还有一个隐藏属性 __proto__，指向 Object.prototype
+
+
+第 3 题
+JSON 和 JavaScript 是什么关系？
+JSON 和 JavaScript 的区别有哪些？
+
+关系：JSON借鉴了JavaScript，但它是一门新的语言用于数据交换，
+它俩除了JSON抄袭了部分JavaScript的语法外，可以说毫无关系，是两门语言
+
+区别：1.JSON必须用双引号表示一个字符串
+	  2.JSON没有抄袭function和undefined
+	  3.JSON不能表示复杂类型的对象
+
+JSON.parse(string)  把符合JSON语法的字符串转换成JS对应的值
+JSON.stringify(object)  把一个对象转换成字符串
+
+
+第 4 题
+前端 MVC 是什么？
+请用代码大概说明 MVC 三个对象分别有哪些重要属性和方法。
+
+MVC 是一种编程思想，代码组织形式。
+view(视图) model(数据) controller(逻辑)
+
+用户点击view，controller监听view，所以一旦view被点击controller就会得到通知，
+controller从view中会获取到一些数据，然后调用model,model就会去服务器请求，
+server给到model响应数据，model再把数据返回给controller,
+controller拿到数据后就会去更新view，所以他们之间的交互是分层的。
+
+!function(){
+	var view = {
+		init(){}
+	}
+
+	var model = {
+		init(){},
+		fetch(){},
+		save(){}
+	}
+
+	var controller = {
+		view:null,
+		model:null,
+		init: function(view, model){
+			this.view = view
+			this.model = model
+		}
+	}
+}
+
+
+
+第 5 题
+在 ES5 中如何用函数模拟一个类？
+function Human(options){
+	this.name = options.name
+	this.age = options.age
+}
+Human.prototype.run = function(){/*奔跑代码*/}
+Human.prototype.eat = function(){/*吃饭代码*/}
+
+var human = newHuman({name: 'xiaoming', age: 11})
+
+
+第 6 题
+用过 Promise 吗？举例说明。
+如果要你创建一个返回 Promise 对象的函数，你会怎么写？举例说明。
+
+1.then
+  $.ajax(...).then(成功函数, 失败函数)
+2.链式 then
+  $.ajax(...).then(成功函数, 失败函数).then(成功函数2, 失败函数2)
+3.自己生成 Promise 对象
+  function xxx(){
+      return new Promise(function(resolve, reject){
+          setTimeout(()=>{
+              resolve() 或者 reject()
+          },3000)
+      })
+  }
+  xxx().then(...)
+
+  
