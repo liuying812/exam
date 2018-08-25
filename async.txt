@@ -1,0 +1,31 @@
+﻿什么是异步？
+
+异步是不等待上一个任务的结果直接进入下一个任务
+setTimeout(function(){
+console.log(1)
+},0)
+console.log(2)
+上面打印结果是 2  1
+
+
+什么是回调（callback）
+
+A callback is a function that is passed as an argument to another function 
+and is executed after its parent function has completed.
+回调是拿到异步结果的一种方式，它也可以拿到同步结果
+例如：点击事件的回调函数
+$('#button').click(function(){
+	alert('点击了')
+})
+
+
+异步是指一个不等一个任务返回结果（成功/失败/或其他结果），就直接执行下一句代码。
+同步则是前者执行完拿到结果（返回值）了之后，再执行下一句代码
+
+回调就是一种特殊的函数调用方式。
+例如
+
+functon fn(fn2){
+    fn2.call()
+}
+fn 将别人传给它的 fn2 调用了，这种调用就是回调。
